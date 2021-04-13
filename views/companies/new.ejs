@@ -1,0 +1,94 @@
+<%layout('./layouts/boilerplate')%>
+
+<h1 class = "text-center text-4xl py-1 mb-1">Create a New Company</h1>
+
+<div class = "container mx-auto px-96 pb-36 pt-6">
+	<form class="needs-validation bg-gray-200 px-3 py-3 rounded-t-lg rounded-b-lg" action="/companies" method="POST" novalidate>
+		<div class = "mb-1">
+			<label class="form-label" for="name">Company Name</label>
+			<input class="form-control" type="text" id="name" name="company[companyname]" placeholder="Company's Name?" required>
+		</div>
+	
+		<div class = "mb-1">
+			<label class="form-label" for="description">Company Description</label>
+			<!-- <input class="form-control" type="text" id="description" name="company[description]" placeholder="Please include date founded, Ceo, and about the company?" required> -->
+			<textarea class="form-control" name="company[description]" id="description" placeholder="Please include date founded, Ceo, and about the company?" cols="30" rows="5" required></textarea>
+		</div>
+		
+		<div class = "mb-1">
+			<label class="form-label" for="mission">Company mission</label>
+			<!-- <input class="form-control" type="text" id="mission" name="company[missions]" placeholder="Company's mission?" required> -->
+			<textarea class="form-control" name="company[missions]" id="mission" placeholder="Company's mission?" cols="30" rows="5" required></textarea>
+		</div>
+		
+		<div class = "mb-1">
+			<label class="form-label" for="culture">Company culture</label>
+			<!-- <input class="form-control" type="text" id="culture" name="company[culture]" placeholder="Company's culture?" required> -->
+			<textarea class="form-control" name="company[culture]" id="culture" placeholder="Company's mission?" cols="30" rows="5" required></textarea>
+		</div>
+		
+		<div class = "mb-1">
+			<label class="form-label" for="location">Company locations</label>
+			<input class="form-control" type="text" id="location" name="company[locations]" placeholder="Company's locations?" required>
+			<!-- <textarea class="form-control" name="company[locations]" id="location" placeholder="Company's locations?" cols="30" rows="5" required></textarea> -->
+		</div>
+		
+		<div class = "mb-1">
+			<label class="form-label" for="image">Company image</label>
+			<input class="form-control" type="text" id="image" name="company[image]" placeholder="Only a LINK! of an image for that company" required>
+		</div>
+
+		<div class = "mb-2">
+			<label class="form-label" for="link">Company's link</label>
+			<input class="form-control" type="text" id="link" name="company[links]" placeholder="Only a URL! of an image for that company" required>
+		</div>
+		
+		<div class = "mb-1 flex justify-end ">
+			<button class="btn btn-primary btn-sm rounded-full">Submit</button>
+		</div>
+</form>
+</div>
+
+
+<!-- <div>
+<h5><a href="/companies">Go Back to all Companies</a></h5>
+</div> -->
+
+<!-- <input type="file" -->
+
+ <!-- <div>
+	 <label for="price">Price</label>
+	 <select name="playingCard[price]" id="price">
+		 <option value="$">$</option>
+		 <option value="$$">$$</option>
+		 <option value="$$$">$$$</option>
+	 </select>
+ </div> -->
+ 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a new Company</title>
+</head>
+<body>
+    <h1>Create a new Company</h1>
+   <h5><a href="/companies">Go Back to all Companies</a></h5>
+    <form action="/companies" method="POST">
+	<div>
+		<label for="name">Company Name</label>
+		<input type="text" id="name" name="company[companyname]">
+	</div>
+	<div>
+		<label for="description">Company Description</label>
+		<input type="text" id="description" name="company[description]">
+	</div>
+	<button>Submit</button>
+    </form>
+</body>
+</html> -->
+
+
+ <!-- we are using the square brackets in the name so that we can easily send data to our mongoose method without reformatting the body. -->

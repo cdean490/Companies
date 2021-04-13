@@ -1,0 +1,53 @@
+<%layout('./layouts/boilerplate')%>
+
+<h1 class="text-center py-2 text-4xl bg-blue-300 bg-opacity-50">COMPANIES</h1>
+   
+
+<div class="container pr-96 pt-3 mr-96 py-96 bg-local" style="background-image: url(https://images.unsplash.com/photo-1588593140187-15accd20e5c4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80);">
+        <ul class="flex flex-row justify-evenly ">
+            <% for (let company of companies) {%>
+                <div class="card" style="width: 13rem;">
+                    <a href="/companies/<%=company.id %>"><img src="<%=company.image%>" class="card-img-top" alt=""></a>
+                    <div class="card-body">
+                        <!-- <p>Submitted By: <b><%=company.submittedBy.username%></b></p> -->
+                       <p> <%= company.description %> </p>
+                    </div>
+                </div>
+                <% } %>
+            </ul>
+        </div>
+
+
+
+
+ <!-- <ul>
+    <% for (let company of companies) {%>
+        <li><a href="/companies/<%=company.id %>"><%=company.companyname%></a></li>
+        <% } %>
+    </ul> -->
+ 
+<!-- <div>
+    <a href="/companies/new">Create a new Company</a>
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Companies</title>
+</head>
+<body>
+    <h1>All Companies</h1>
+    <div>
+        <a href="/companies/new">Create a new Company</a>
+    </div>
+    
+    <ul>
+        <% for (let company of companies) {%>
+        <li><a href="companies/<%=company.id %>"><%=company.companyname%></a></li>
+        <% } %>
+    </ul>
+</body>
+</html> -->

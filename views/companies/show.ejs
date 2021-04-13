@@ -1,0 +1,94 @@
+<%layout('./layouts/boilerplate')%>
+
+<h1 class="text-center text-4xl py-2">About a Company</h1>
+<!-- <a href="/companies">Go Back to all Companies</a> -->
+<a href="<%=company.links%>" class="Link"> <img class ="image" style= "width:200px" src="<%=company.image%>" alt=""> </a> 
+
+<p><h2 class="text-center text-5xl"><%= company.companyname %></h2></p>
+
+<div class="container mt-2 mx-1 px-1 bg-gray-100 ">
+<p>Submitted By: <%=company.submittedBy.username%></p>
+<p>Description: <%= company.description %></p>
+<p>Mission: <%= company.missions %></p>
+<p>Culture: <%= company.culture %></p>
+<p>Locations: <%= company.locations %></p>
+</div>
+
+<div class="flex space-x-1 justify-end py-1">
+<% if(user && company.submittedBy.equals(user) ) { %>
+<div class="text-blue-500 hover:underline">
+    <a href="/companies/<%=company.id%>/edit">Edit <%=company.companyname%></a>
+</div>
+<p>|</p>
+<form action="/companies/<%=company.id%>/delete?_method=DELETE" method="POST">
+    <button class="btn btn-primary btn-sm">Delete Company</button>
+</form>
+<% } %>
+</div>
+
+<!-- Review FORM -->
+<% if(user) { %> 
+<h2 class="text-center text-black text-xl underline py-1">Please leave a rating and comments below </h2>
+<form class="needs-validation py-1" action="/companies/<%=company.id%>/reviews" method="POST" novalidate>
+    <div class="mx-1 px-1">
+        <label class="form-label" for="rating">Ratings (Note: 0 | 1 | 2 | default: 3 | 4 | 5 ) </label>
+        <input class="form-range" name="review[rating]" type="range" min="0" max="5" step="1" required>
+    </div>
+    <div class="mx-1 px-1">
+        <label class="form-label" for="body">Comment on your experience?</label>
+        <textarea class="form-control" name="review[body]" id="body" cols="30" rows="5" required></textarea>
+    </div>
+    <div class="flex justify-end py-1">
+    <button class="btn btn-primary btn-sm">Submit</button>
+    </div>
+</form>
+<% } %>
+
+<div>
+    <h3 class="text-center text-black text-xl underline py-1">Reviews</h3>
+    <% for (let review of company.reviews) {%>
+        <div class="border-b-2 py-1 mx-1">
+            <p>Rating: <%=review.rating%></p>
+            <p>Author: <%=review.author.username%></p>
+            <p>Reviews: <%=review.body%></p>
+            <% if(user && review.author.equals(user)) { %>
+                <form action="/companies/<%=company.id%>/reviews/<%=review.id%>?_method=DELETE" method="POST">
+                    <div class="flex justify-end hover:underline text-blue-500">
+                    <button>Delete a review</button>
+                    </div>
+                </form>
+                <% } %>
+            </div>
+            <%}%>
+</div>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companies Detail</title>
+</head>
+<body>
+    <h1>A Company Details</h1>
+    <a href="/companies">Go Back to all Companies</a>
+    <h2><%= company.companyname %></h2>
+    <p><strong><%= company.description %></strong></p>
+    <p><strong><%= company.missions %></strong></p>
+    <p><strong><%= company.culture %></strong></p>
+    <p><strong><%= company.locations %></strong></p>
+
+    <div>
+        <a href="/companies/<%=company.id%>/edit">Edit <%=company.companyname%></a>
+    </div>
+
+    <form action="/companies/<%=company.id%>/delete?_method=DELETE" method="POST">
+        <button>Delete Company</button>
+    </form>
+</body>
+</html> -->

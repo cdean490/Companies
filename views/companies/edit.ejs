@@ -1,0 +1,82 @@
+<%layout('./layouts/boilerplate')%>
+
+<h1 class = "text-center text-4xl py-1 mb-1">Update <%=company.companyname%> Info</h1>
+
+<div class="container mx-auto px-96 pb-36 pt-6">
+    <form class="bg-gray-200 px-3 py-3 rounded-t-lg rounded-b-lg" action="/companies/<%=company.id%>/?_method=PUT" method="POST">
+        <div class = "mb-1">
+            <label class = "form-label " for="name">Company Name</label>
+            <input class = "form-control" type="text" id="name" name="company[companyname]" value="<%=company.companyname%>" required>
+        </div>
+        
+        <div class = "mb-1">
+            <label class = "form-label" for="description">Company Description</label>
+            <!-- <input class = "form-control" type="text" id="description" name="company[description]" value="<%=company.description%>"> -->
+            <textarea class="form-control rounded-none" name="company[description]" id="description" cols="30" rows="5" required><%=company.description%></textarea>
+        </div>
+    
+        <div class = "mb-1">
+            <label class = "form-label" for="mission">Company mission</label>
+            <!-- <input class = "form-control" type="text" id="mission" name="company[missions]" value="<%=company.missions%>"> -->
+            <textarea class="form-control rounded-none" name="company[missions]" id="mission" cols="30" rows="5" required><%=company.missions%></textarea>
+        </div>
+        
+        <div class = "mb-1">
+            <label class = "form-label" for="culture">Company culture</label>
+            <!-- <input class = "form-control" type="text" id="culture" name="company[culture]" value="<%=company.culture%>"> -->
+            <textarea class="form-control rounded-none" name="company[culture]" id="culture" cols="30" rows="5" required><%=company.culture%></textarea>
+        </div>
+        
+        <div class = "mb-1">
+            <label class = "form-label" for="location">Company locations</label>
+            <input class = "form-control" type="text" id="location" name="company[locations]" value="<%=company.locations%>" required>
+            <!-- <textarea class="form-control" name="company[locations]" id="location" placeholder="<%=company.locations%>" cols="30" rows="5" required></textarea> -->
+        </div>
+    
+        <div class = "mb-1">
+            <label class = "form-label" for="image">Company image</label>
+            <input class = "form-control" type="text" id="image" name="company[image]" value="<%=company.image%>" required>
+        </div>
+
+        <div class = "mb-2">
+            <label class = "form-label" for="link">Company Link</label>
+            <input class = "form-control" type="text" id="link" name="company[links]" value="<%=company.links%>" required>
+        </div>
+        
+        <div class = "mb-1 flex justify-end ">
+            <button class="btn btn-primary btn-sm rounded-full ">Submit</button>
+        </div>
+</form>
+</div>
+
+
+<!-- <div>
+<a href="/companies/<%=company.id%>">Go back to <%=company.companyname%></a>
+</div> -->
+
+<!-- <input type="file" -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit </title>
+</head>
+<body>
+    <h1>Edit<%=company.companyname%></h1>
+    <form action="/companies/<%=company.id%>/?_method=PUT" method="POST">
+        <div>
+            <label for="name">Company Name</label>
+            <input type="text" id="name" name="company[companyname]" value="<%=company.companyname%>">
+        </div>
+        <div>
+            <label for="description">Company Description</label>
+            <input type="text" id="description" name="company[description]" value="<%=company.description%>">
+        </div>
+        <button>Submit</button>
+    </form>
+    <a href="/companies/<%=company.id%>">Go back to <%=company.companyname%></a>
+</body>
+</html> -->
