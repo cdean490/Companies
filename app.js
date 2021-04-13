@@ -133,7 +133,9 @@ app.use((err, req, res, next) => {
 	res.status(status).render('error', {err});
 });
 
+//set a port for heroku because they don't use localhost:3000
+const port = process.env.PORT || 3000
 
 app.listen(3000, () => {//listening in to localhost 3000
-    console.log('listening on port 3000');
+    console.log(`listening on port ${port}`);
 });
